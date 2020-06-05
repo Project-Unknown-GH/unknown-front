@@ -11,7 +11,12 @@ module.exports = {
         "plugin:prettier/recommended",
         "plugin:nuxt/recommended"
     ],
-    plugins: ["prettier"],
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "ecmaVersion": 2020,
+        "sourceType": "module"
+    },
+    plugins: ["prettier", "@typescript-eslint"],
     // add your custom rules here
     rules: {
         "spaced-comment": ["error", "always"],
@@ -21,8 +26,8 @@ module.exports = {
         "import/no-amd": 2,
         "import/no-cycle": ["error", { maxDepth: 1 }],
         "node/no-missing-import": [
-            "warn",
-            { tryExtensions: [".js", ".json", ".node", ".ts"] }
+            "off",
+            { tryExtensions: [".js", ".json", ".node", ".ts", ".vue"] }
         ],
         "node/no-unpublished-import": 0,
         "node/no-unsupported-features/es-syntax": 0,
