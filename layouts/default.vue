@@ -61,6 +61,11 @@ export default {
                     icon: "mdi-chart-bubble",
                     title: "Login",
                     to: "/login"
+                },
+                {
+                    icon: "mdi-chart-bubble",
+                    title: "Dashboard",
+                    to: "/dashboard"
                 }
             ],
             miniVariant: false,
