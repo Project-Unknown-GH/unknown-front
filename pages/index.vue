@@ -68,7 +68,7 @@
     </v-layout>
 </template>
 
-<script>
+<script lang="ts">
 import Logo from "~/components/Logo.vue";
 import VuetifyLogo from "~/components/VuetifyLogo.vue";
 
