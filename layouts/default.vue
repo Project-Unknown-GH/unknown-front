@@ -58,12 +58,12 @@ export default {
                     to: "/"
                 },
                 {
-                    icon: "mdi-chart-bubble",
+                    icon: "mdi-account",
                     title: "Login",
                     to: "/login"
                 },
                 {
-                    icon: "mdi-chart-bubble",
+                    icon: "mdi-desktop-mac-dashboard",
                     title: "Dashboard",
                     to: "/dashboard"
                 }
