@@ -37,9 +37,9 @@
                             Custom-built monitors
                         </v-card-title>
                         <v-card-text>
-                            Our development team has carefully constructed a
-                            set of store monitors in order to keep you up to
-                            date on the latest restocks.
+                            Our development team has carefully constructed a set
+                            of store monitors in order to keep you up to date on
+                            the latest restocks.
                         </v-card-text>
                     </v-card>
                 </v-col>

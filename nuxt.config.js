@@ -5,6 +5,9 @@ export default {
     /*
      ** Headers of the page
      */
+    router: {
+        base: "/unknown-front/"
+    },
     head: {
         titleTemplate: "%s - " + process.env.npm_package_name,
         title: process.env.npm_package_name || "",
