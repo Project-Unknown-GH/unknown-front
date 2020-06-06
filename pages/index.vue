@@ -18,12 +18,12 @@
         <v-container>
             <v-row justify="center">
                 <v-col>
-                    <v-card class="ma-3 pa-6" style="text-align: center">
-                        <v-icon>mdi-account</v-icon>
+                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                        <v-icon class="featureIcon">mdi-account</v-icon>
                         <v-card-title class="justify-center">
                             Great community
                         </v-card-title>
-                        <v-card-text>
+                        <v-card-text class="featureText">
                             Our community is helpful, friendly, and will always
                             help you out with any botting problems or questions
                             that you might have.
@@ -31,12 +31,12 @@
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6" style="text-align: center">
-                        <v-icon>mdi-robot</v-icon>
+                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                        <v-icon class="featureIcon">mdi-robot</v-icon>
                         <v-card-title class="justify-center">
                             Custom-built monitors
                         </v-card-title>
-                        <v-card-text>
+                        <v-card-text class="featureText">
                             Our development team has carefully constructed a set
                             of store monitors in order to keep you up to date on
                             the latest restocks.
@@ -44,12 +44,12 @@
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6" style="text-align: center">
-                        <v-icon>mdi-discord</v-icon>
+                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                        <v-icon class="featureIcon">mdi-discord</v-icon>
                         <v-card-title class="justify-center">
                             Exclusive discord
                         </v-card-title>
-                        <v-card-text>
+                        <v-card-text class="featureText">
                             If you join the group, you gain access to an
                             exclusive Discord server with plenty of monitors and
                             a great community.
@@ -59,24 +59,24 @@
             </v-row>
             <v-row justify="center">
                 <v-col>
-                    <v-card class="ma-3 pa-6" style="text-align: center">
-                        <v-icon>mdi-cash-multiple</v-icon>
+                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                        <v-icon class="featureIcon">mdi-cash-multiple</v-icon>
                         <v-card-title class="justify-center">
                             Affordable pricing
                         </v-card-title>
-                        <v-card-text>
+                        <v-card-text class="featureText">
                             The price to join is especially cheap, with a price
                             of we don't know yet. Completely worth the money.
                         </v-card-text>
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6" style="text-align: center">
-                        <v-icon>mdi-laptop</v-icon>
+                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                        <v-icon class="featureIcon">mdi-laptop</v-icon>
                         <v-card-title class="justify-center">
                             Rigel
                         </v-card-title>
-                        <v-card-text>
+                        <v-card-text class="featureText">
                             Rigel is an automated chrome extension that
                             maximizes your chances of checking out Supreme. Put
                             in your info, add your item to the cart, and Rigel
@@ -85,14 +85,15 @@
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6" style="text-align: center">
-                        <v-icon>mdi-gift</v-icon>
+                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                        <v-icon class="featureIcon">mdi-gift</v-icon>
                         <v-card-title class="justify-center">
                             Giveaways
                         </v-card-title>
-                        <v-card-text>
+                        <v-card-text class="featureText">
                             We host a large amount of giveaways, giving away
-                            things like sl0ts, Discord Nitro, ACO's, and more!
+                            things like slots, Discord Nitro, premium shoe bots,
+                            and more!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -122,7 +123,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 #stripes span:nth-child(1) {
     grid-column: span 1;
@@ -175,6 +176,17 @@ export default {
 @media only screen and (max-width: 650px) {
     .subtitleWords {
         top: 45vh;
+    }
+}
+.feature {
+    height: 90%;
+    text-align: center;
+    color: #222;
+    .featureIcon {
+        color: #222;
+    }
+    .featureText {
+        color: #222;
     }
 }
 </style>
