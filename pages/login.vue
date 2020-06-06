@@ -1,26 +1,6 @@
 <template>
     <v-layout>
         <v-tabs v-model="tab" fixed-tabs>
-            <v-tab>Login</v-tab>
-            <v-tab-item class="v-tab-item">
-                <v-form>
-                    <v-text-field
-                        v-model="email"
-                        :rules="emailRules"
-                        label="E-mail"
-                        required
-                    ></v-text-field>
-                    <v-text-field
-                        v-model="password"
-                        label="Password"
-                        required
-                    ></v-text-field>
-                    {{ email }} {{ password }}
-                </v-form>
-                <br />
-                <v-btn color="success" @click="login">Submit</v-btn>
-                <v-btn color="error" @click="resetForm">Reset form</v-btn>
-            </v-tab-item>
             <v-tab>Register</v-tab>
             <v-tab-item class="v-tab-item">
                 <v-form>
@@ -45,6 +25,26 @@
                 </v-form>
                 <br />
                 <v-btn color="success">Submit</v-btn>
+                <v-btn color="error" @click="resetForm">Reset form</v-btn>
+            </v-tab-item>
+            <v-tab>Login</v-tab>
+            <v-tab-item class="v-tab-item">
+                <v-form>
+                    <v-text-field
+                        v-model="email"
+                        :rules="emailRules"
+                        label="E-mail"
+                        required
+                    ></v-text-field>
+                    <v-text-field
+                        v-model="password"
+                        label="Password"
+                        required
+                    ></v-text-field>
+                    {{ email }} {{ password }}
+                </v-form>
+                <br />
+                <v-btn color="success" @click="login">Submit</v-btn>
                 <v-btn color="error" @click="resetForm">Reset form</v-btn>
             </v-tab-item>
             <v-tab>Logout</v-tab>
