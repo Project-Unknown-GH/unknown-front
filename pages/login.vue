@@ -60,7 +60,7 @@
 import Vue from "vue";
 
 export default Vue.extend({
-    name: "login",
+    name: "Login",
     data: () => ({
         username: "",
         email: "",
