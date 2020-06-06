@@ -10,7 +10,7 @@
         <h1 class="titleWords">Project Unknown</h1>
         <h3 class="subtitleWords">A new, innovative cook group.</h3>
         <br />
-        <h2 style="font-family: 'Montserrat',sans-serif; font-size: 36px">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 36px; text-align: center">
             Why Project Unknown?
         </h2>
         <v-container>
@@ -96,20 +96,19 @@
                 </v-col>
             </v-row>
         </v-container>
-        <v-card style="text-align: center; padding: 20px">
+        <v-card class="ma-3 pa-6" style="text-align: center">
             <v-card-title
                 class="justify-center"
                 style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt"
                 >Register</v-card-title
             >
-            <v-btn rounded color="error">Register now!</v-btn>
+            <v-btn rounded color="error" to="login">Register now!</v-btn>
             <v-card-text
                 >Creating an account is free. Once you are registered, you can
                 pay [amount] to become a paid member of Project
                 Unknown!</v-card-text
             >
         </v-card>
-        <br />
     </v-layout>
 </template>
 
