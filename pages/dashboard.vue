@@ -17,9 +17,6 @@
                             >
                                 {{ userData.role.charAt(0).toUpperCase() }}
                             </span>
-                            <span>
-                                {{ userData.role.slice(1) }}
-                            </span>
                         </p>
                     </v-card-text>
                 </v-card>

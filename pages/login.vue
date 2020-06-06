@@ -21,10 +21,9 @@
                         label="Password"
                         required
                     ></v-text-field>
-                    {{ email }} {{ password }}
                 </v-form>
                 <br />
-                <v-btn color="success">Submit</v-btn>
+                <v-btn color="success" @click="create">Submit</v-btn>
                 <v-btn color="error" @click="resetForm">Reset form</v-btn>
             </v-tab-item>
             <v-tab>Login</v-tab>
@@ -41,7 +40,6 @@
                         label="Password"
                         required
                     ></v-text-field>
-                    {{ email }} {{ password }}
                 </v-form>
                 <br />
                 <v-btn color="success" @click="login">Submit</v-btn>
@@ -93,6 +91,24 @@ export default Vue.extend({
                     password: this.password
                 })
             });
+            this.status = await resp.json();
+        },
+        async create() {
+            const resp = await fetch(
+                "http://localhost:7400/api/users/createUser",
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: this.email,
+                        username: this.username,
+                        password: this.password
+                    })
+                }
+            );
             this.status = await resp.json();
         },
         async logout() {
