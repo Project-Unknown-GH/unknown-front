@@ -11,10 +11,10 @@ module.exports = {
         "plugin:prettier/recommended",
         "plugin:nuxt/recommended"
     ],
-    "parserOptions": {
-        "parser": "@typescript-eslint/parser",
-        "ecmaVersion": 2020,
-        "sourceType": "module"
+    parserOptions: {
+        parser: "@typescript-eslint/parser",
+        ecmaVersion: 2020,
+        sourceType: "module"
     },
     plugins: ["prettier", "@typescript-eslint"],
     // add your custom rules here

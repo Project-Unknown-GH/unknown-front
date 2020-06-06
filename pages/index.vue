@@ -10,7 +10,9 @@
         <h1 class="titleWords">Project Unknown</h1>
         <h3 class="subtitleWords">A new, innovative cook group.</h3>
         <br />
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 36px; text-align: center">
+        <h2
+            style="font-family: 'Montserrat', sans-serif; font-size: 36px; text-align: center"
+        >
             Why Project Unknown?
         </h2>
         <v-container>
@@ -113,14 +115,7 @@
 </template>
 
 <script lang="ts">
-import Logo from "~/components/Logo.vue";
-import VuetifyLogo from "~/components/VuetifyLogo.vue";
-
 export default {
-    components: {
-        Logo,
-        VuetifyLogo
-    },
     data: () => ({
         show: false
     })
