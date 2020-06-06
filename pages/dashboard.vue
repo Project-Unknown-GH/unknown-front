@@ -69,7 +69,11 @@ export default Vue.extend({
     }),
     async mounted() {
         this.userData = await this.getUserData();
-        this.loaded = true;
+        if (this.userData) {
+            this.loaded = true;
+        } else {
+            this.$router.push("/login");
+        }
     },
     methods: {
         async getUserData() {
@@ -83,7 +87,11 @@ export default Vue.extend({
                     }
                 }
             );
-            return (await resp.json()).user;
+            if (resp.status === 400) {
+                return null;
+            } else {
+                return (await resp.json()).user;
+            }
         },
         roleToColor(role: UserRole) {
             if (role === "admin") {
