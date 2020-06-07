@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-snackbar top v-model="errored">
+        <v-snackbar v-model="errored" top>
             {{ errorMessage }}
             <v-btn color="pink" text @click="errored = false">
                 Close
