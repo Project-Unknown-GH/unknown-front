@@ -56,6 +56,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import config from "~/assets/config";
 
 export default Vue.extend({
     name: "Login",
@@ -80,7 +81,7 @@ export default Vue.extend({
     }),
     methods: {
         async login() {
-            const resp = await fetch("http://localhost:7400/api/auth/login", {
+            const resp = await fetch(`${config.serverUrl}/api/auth/login`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -95,7 +96,7 @@ export default Vue.extend({
         },
         async create() {
             const resp = await fetch(
-                "http://localhost:7400/api/users/createUser",
+                `${config.serverUrl}/api/users/createUser`,
                 {
                     method: "POST",
                     credentials: "include",
@@ -112,7 +113,7 @@ export default Vue.extend({
             this.status = await resp.json();
         },
         async logout() {
-            const resp = await fetch("http://localhost:7400/api/auth/logout", {
+            const resp = await fetch(`${config.serverUrl}/api/auth/logout`, {
                 method: "GET",
                 credentials: "include",
                 headers: {

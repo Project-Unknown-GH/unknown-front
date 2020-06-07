@@ -55,6 +55,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import config from "~/assets/config";
 
 type UserRole = "admin" | "member" | "verified" | "none";
 
@@ -74,16 +75,13 @@ export default Vue.extend({
     },
     methods: {
         async getUserData() {
-            const resp = await fetch(
-                "http://localhost:7400/api/users/userData",
-                {
-                    method: "GET",
-                    credentials: "include",
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
+            const resp = await fetch(`${config.serverUrl}/api/users/userData`, {
+                method: "GET",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
                 }
-            );
+            });
             if (resp.status === 400) {
                 return null;
             } else {
