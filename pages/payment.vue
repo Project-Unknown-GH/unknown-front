@@ -40,12 +40,11 @@ export default {
         },
         tokenCreated(token) {
             this.token = token;
-            // for additional charge objects go to https://stripe.com/docs/api/charges/object
             this.charge = {
                 source: token.id,
                 currency: "usd",
-                amount: this.amount, // the amount you want to charge the customer in cents. $100 is 1000 (it is strongly recommended you use a product id and quantity and get calculate this on the backend to avoid people manipulating the cost)
-                description: this.description // optional description that will show up on stripe when looking at payments
+                amount: this.amount,
+                description: this.description
             };
             this.sendTokenToServer(this.charge);
         },
