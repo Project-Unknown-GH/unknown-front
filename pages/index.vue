@@ -105,7 +105,7 @@
                 style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt"
                 >Register</v-card-title
             >
-            <v-btn rounded color="error" to="login">Register now!</v-btn>
+            <v-btn color="error" to="login">Register now!</v-btn>
             <v-card-text
                 >Creating an account is free. Once you are registered, you can
                 pay [amount] to become a paid member of Project
