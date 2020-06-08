@@ -50,6 +50,30 @@
                 </v-expansion-panels>
             </v-row>
         </v-container>
+        <v-dialog v-model="unverified" persistent width="500">
+            <v-card>
+                <v-card-title>Email verification</v-card-title>
+                <v-card-text>
+                    In order to be a part of Project Unknown, your email must be
+                    verified. Simply go to your email, find the verification
+                    email that was sent by us, and click the link. Doing so will
+                    help us prevent spam accounts. Thank you!
+                </v-card-text>
+                <v-card-text>
+                    If you fail to verify your email within the next 3 days,
+                    your account will be deleted.
+                </v-card-text>
+                <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                        color="green darken-1"
+                        text
+                        @click="unverified = false"
+                        >Close</v-btn
+                    >
+                </v-card-actions>
+            </v-card>
+        </v-dialog>
     </v-layout>
 </template>
 
@@ -63,12 +87,14 @@ export default Vue.extend({
     name: "Dashboard",
     data: () => ({
         userData: null,
-        loaded: false
+        loaded: false,
+        unverified: true
     }),
     async mounted() {
-        this.userData = await this.getUserData();
-        if (this.userData) {
+        const data = await this.getUserData();
+        if (data) {
             this.loaded = true;
+            this.userData = data;
         } else {
             this.$router.push("/login");
         }
