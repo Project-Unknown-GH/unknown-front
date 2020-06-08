@@ -19,24 +19,56 @@
                             </span>
                         </p>
                     </v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn @click="userOpened = !userOpened">
+                            {{ userOpened ? "Less info" : "More info" }}
+                            <v-icon>{{
+                                userOpened
+                                    ? "mdi-chevron-up"
+                                    : "mdi-chevron-down"
+                            }}</v-icon>
+                        </v-btn>
+                    </v-card-actions>
+                    <v-expand-transition>
+                        <div v-show="userOpened">
+                            <v-divider></v-divider>
+                            <v-list-item two-line>
+                                <v-list-item-content>
+                                    <v-list-item-title>Email</v-list-item-title>
+                                    <v-list-item-subtitle>
+                                        {{ userData.email }}
+                                    </v-list-item-subtitle>
+                                </v-list-item-content>
+                            </v-list-item>
+                            <v-list-item two-line>
+                                <v-list-item-content>
+                                    <v-list-item-title>Role</v-list-item-title>
+                                    <v-list-item-subtitle>
+                                        {{ userData.role }}
+                                    </v-list-item-subtitle>
+                                </v-list-item-content>
+                            </v-list-item>
+                        </div>
+                    </v-expand-transition>
                 </v-card>
             </v-row>
             <v-row>
                 <v-expansion-panels v-if="loaded" multiple>
                     <v-expansion-panel>
                         <v-expansion-panel-header>
-                            E-mail
+                            Discord Key
                         </v-expansion-panel-header>
                         <v-expansion-panel-content>
-                            {{ userData.email }}
+                            {{ keyData.discordKey.value }}
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                     <v-expansion-panel>
                         <v-expansion-panel-header>
-                            Discord Key
+                            Rigel Key
                         </v-expansion-panel-header>
                         <v-expansion-panel-content>
-                            Not supported!
+                            {{ keyData.rigelKey.value }}
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                     <v-expansion-panel>
@@ -82,19 +114,32 @@ import Vue from "vue";
 import config from "~/assets/config";
 
 type UserRole = "admin" | "member" | "verified" | "none";
+interface UserKey {
+    discordKey: {
+        value: string;
+        used: boolean;
+    };
+    rigelKey: {
+        value: string;
+        used: boolean;
+    };
+}
 
 export default Vue.extend({
     name: "Dashboard",
     data: () => ({
-        userData: null,
+        userData: null as Record<string, unknown> | null,
         loaded: false,
-        unverified: true
+        userOpened: false,
+        unverified: true,
+        keyData: null as UserKey | null
     }),
     async mounted() {
         const data = await this.getUserData();
         if (data) {
-            this.loaded = true;
             this.userData = data;
+            this.keyData = await this.getKeysForUser();
+            this.loaded = true;
         } else {
             this.$router.push("/login");
         }
@@ -112,6 +157,58 @@ export default Vue.extend({
                 return null;
             } else {
                 return (await resp.json()).user;
+            }
+        },
+        async getKeysForUser(): Promise<UserKey> {
+            const userData = this.userData;
+            if (!userData) {
+                return {
+                    discordKey: {
+                        value: "You are not logged in!",
+                        used: false
+                    },
+                    rigelKey: {
+                        value: "You are not logged in!",
+                        used: false
+                    }
+                };
+            }
+            const resp = await fetch(
+                `${config.serverUrl}/api/keys/getKeysForUser`,
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        userId: userData.id
+                    })
+                }
+            );
+            const status = await resp.json();
+            if (status.status !== 200) {
+                return {
+                    discordKey: {
+                        value: status.message,
+                        used: false
+                    },
+                    rigelKey: {
+                        value: status.message,
+                        used: false
+                    }
+                };
+            } else {
+                return {
+                    discordKey: {
+                        value: status.discordKey.value,
+                        used: status.discordKey.used
+                    },
+                    rigelKey: {
+                        value: status.rigelKey.value,
+                        used: status.rigelKey.used
+                    }
+                };
             }
         },
         roleToColor(role: UserRole) {

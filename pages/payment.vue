@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="loaded">
         <v-snackbar v-model="errored" top>
             {{ errorMessage }}
             <v-btn color="pink" text @click="errored = false">
@@ -32,9 +32,34 @@ export default {
         token: null,
         charge: null,
         errored: false,
-        errorMessage: ""
+        errorMessage: "",
+        loaded: false,
+        userData: null
     }),
+    async mounted() {
+        const data = await this.getUserData();
+        if (data) {
+            this.loaded = true;
+            this.userData = data;
+        } else {
+            this.$router.push("/login");
+        }
+    },
     methods: {
+        async getUserData() {
+            const resp = await fetch(`${config.serverUrl}/api/users/userData`, {
+                method: "GET",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            if (resp.status === 400) {
+                return null;
+            } else {
+                return (await resp.json()).user;
+            }
+        },
         submit() {
             this.$refs.elementsRef.submit();
         },
@@ -56,7 +81,8 @@ export default {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    stripeToken: token
+                    stripeToken: token,
+                    userId: this.userData.id
                 })
             });
             const status = await resp.json();
