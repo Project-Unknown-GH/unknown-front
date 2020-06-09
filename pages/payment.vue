@@ -1,24 +1,16 @@
 <template>
     <div id="payment">
         <h1>Please give us your payment details:</h1>
-        <card
-            class="stripe-card"
-            :class="{ complete }"
-            stripe="pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T"
-            :options="stripeOptions"
-            @change="complete = $event.complete"
-        />
-        <button class="pay-with-stripe" :disabled="!complete" @click="pay">
+        <button class="pay-with-stripe" @click="pay">
             Pay with credit card
         </button>
     </div>
 </template>
 
 <script>
-import { Card, redirectToCheckout } from "vue-stripe-elements-plus";
+const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
 
 export default {
-    components: { Card },
     data() {
         return {
             complete: false,
@@ -53,7 +45,7 @@ export default {
             // See https://stripe.com/docs/api#tokens for the token object.
             // See https://stripe.com/docs/api#errors for the error object.
             // More general https://stripe.com/docs/stripe.js#stripe-create-token.
-            await redirectToCheckout({
+            await stripe.redirectToCheckout({
                 sessionId: this.seshkey.id
             });
         }

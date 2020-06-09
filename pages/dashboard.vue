@@ -52,6 +52,9 @@
                         </div>
                     </v-expand-transition>
                 </v-card>
+                <v-btn>
+                    Buy membership
+                </v-btn>
             </v-row>
             <v-row>
                 <v-expansion-panels v-if="loaded" multiple>
