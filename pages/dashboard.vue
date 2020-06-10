@@ -53,8 +53,8 @@
                     </v-expand-transition>
                 </v-card>
                 <v-spacer></v-spacer>
-                <v-btn v-if="payable" color="primary" to="/payment">
-                    Buy membership
+                <v-btn color="primary" to="/payment">
+                    {{ payable ? "Buy membership" : "Configure payment" }}
                 </v-btn>
             </v-row>
             <br />

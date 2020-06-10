@@ -1,8 +1,11 @@
 <template>
-    <div v-if="complete" id="payment">
+    <div id="payment">
         <h1>Become a member of Project Unknown</h1>
-        <v-btn @click="pay">
+        <v-btn :disabled="!payable" @click="pay">
             Pay with credit card
+        </v-btn>
+        <v-btn :disabled="!unsubscribable" @click="unsubscribe">
+            Unsubscribe
         </v-btn>
     </div>
 </template>
@@ -16,8 +19,9 @@ const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
 export default {
     data() {
         return {
-            complete: false,
-            seshkey: null
+            seshkey: null,
+            payable: false,
+            unsubscribable: false
         };
     },
 
@@ -43,21 +47,38 @@ export default {
                 }
             );
             this.seshkey = (await seshkey.json()).session;
-            this.complete = true;
-        } else {
-            this.$router.push("/dashboard");
+            this.payable = true;
+        }
+        const unsubscribable = await fetch(
+            `${config.serverUrl}/api/payment/unsubscribable`,
+            {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            }
+        );
+        if ((await unsubscribable.json()) === true) {
+            this.unsubscribable = true;
         }
     },
 
     methods: {
         async pay() {
-            // createToken returns a Promise which resolves in a result object with
-            // either a token or an error key.
-            // See https://stripe.com/docs/api#tokens for the token object.
-            // See https://stripe.com/docs/api#errors for the error object.
-            // More general https://stripe.com/docs/stripe.js#stripe-create-token.
             await stripe.redirectToCheckout({
                 sessionId: this.seshkey.id
+            });
+        },
+        async unsubscribe() {
+            await fetch(`${config.serverUrl}/api/payment/cancel`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
             });
         }
     }
