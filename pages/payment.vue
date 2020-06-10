@@ -1,71 +1,86 @@
 <template>
-    <div>
-        <v-snackbar v-model="errored" top>
-            {{ errorMessage }}
-            <v-btn color="pink" text @click="errored = false">
-                Close
-            </v-btn>
-        </v-snackbar>
-        <stripe-elements
-            ref="elementsRef"
-            :pk="publishableKey"
-            :amount="amount"
-            @token="tokenCreated"
-            @loading="loading = $event"
-        >
-        </stripe-elements>
-        <button @click="submit">Pay ${{ amount / 100 }}</button>
+    <div id="payment">
+        <h1>Become a member of Project Unknown</h1>
+        <v-btn :disabled="payable !== true" @click="pay">
+            {{ payable === "Sold out" ? "Sold out" : "Pay with credit card" }}
+        </v-btn>
+        <v-btn :disabled="!unsubscribable" @click="unsubscribe">
+            Unsubscribe
+        </v-btn>
     </div>
 </template>
 
-<script>
-import { StripeElements } from "vue-stripe-checkout";
-import config from "@/assets/config";
+<script lang="ts">
+import config from "../assets/config";
+
+// @ts-ignore
+// eslint-disable-next-line no-undef
+const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
+
 export default {
-    components: {
-        StripeElements
+    data() {
+        return {
+            seshkey: null,
+            payable: false as string | boolean,
+            unsubscribable: false
+        };
     },
-    data: () => ({
-        loading: false,
-        amount: 1000,
-        publishableKey: "pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T",
-        token: null,
-        charge: null,
-        errored: false,
-        errorMessage: ""
-    }),
-    methods: {
-        submit() {
-            this.$refs.elementsRef.submit();
-        },
-        tokenCreated(token) {
-            this.token = token;
-            this.charge = {
-                source: token.id,
-                currency: "usd",
-                amount: this.amount,
-                description: this.description
-            };
-            this.sendTokenToServer(this.charge);
-        },
-        async sendTokenToServer(token) {
-            const resp = await fetch(`${config.serverUrl}/api/payment/pay`, {
+
+    async mounted() {
+        const payable = await fetch(`${config.serverUrl}/api/payment/payable`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({})
+        });
+        if ((await payable.json()) === true) {
+            const seshkey = await fetch(
+                "http://localhost:7400/api/payment/createPayment",
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({})
+                }
+            );
+            this.seshkey = (await seshkey.json()).session;
+            this.payable = true;
+        }
+        const unsubscribable = await fetch(
+            `${config.serverUrl}/api/payment/unsubscribable`,
+            {
                 method: "POST",
                 credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    stripeToken: token
-                })
-            });
-            const status = await resp.json();
-            if (status.status !== 200) {
-                this.errored = true;
-                this.errorMessage = status.message;
-            } else {
-                await this.$router.push("/dashboard");
+                body: JSON.stringify({})
             }
+        );
+        if ((await unsubscribable.json()) === true) {
+            this.unsubscribable = true;
+        }
+    },
+
+    methods: {
+        async pay() {
+            await stripe.redirectToCheckout({
+                sessionId: this.seshkey.id
+            });
+        },
+        async unsubscribe() {
+            await fetch(`${config.serverUrl}/api/payment/cancel`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            });
         }
     }
 };
