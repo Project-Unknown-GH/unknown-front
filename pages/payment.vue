@@ -11,13 +11,14 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import config from "../assets/config";
 
 // @ts-ignore
 // eslint-disable-next-line no-undef
 const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
 
-export default {
+export default Vue.extend({
     data() {
         return {
             seshkey: null,
@@ -83,5 +84,5 @@ export default {
             });
         }
     }
-};
+});
 </script>
