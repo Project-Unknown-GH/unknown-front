@@ -1,8 +1,8 @@
 <template>
     <div id="payment">
         <h1>Become a member of Project Unknown</h1>
-        <v-btn :disabled="!payable" @click="pay">
-            Pay with credit card
+        <v-btn :disabled="payable !== true" @click="pay">
+            {{ payable === "Sold out" ? "Sold out" : "Pay with credit card" }}
         </v-btn>
         <v-btn :disabled="!unsubscribable" @click="unsubscribe">
             Unsubscribe
@@ -10,9 +10,10 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import config from "../assets/config";
 
+// @ts-ignore
 // eslint-disable-next-line no-undef
 const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
 
@@ -20,7 +21,7 @@ export default {
     data() {
         return {
             seshkey: null,
-            payable: false,
+            payable: false as string | boolean,
             unsubscribable: false
         };
     },

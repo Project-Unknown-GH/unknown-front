@@ -1,8 +1,8 @@
 <template>
-    <v-layout>
+    <v-layout v-if="loaded">
         <v-container>
             <v-row>
-                <v-card v-if="loaded" style="clear: both">
+                <v-card style="clear: both">
                     <v-card-text>
                         <p>
                             <span class="display-3 text--primary">
@@ -53,8 +53,18 @@
                     </v-expand-transition>
                 </v-card>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" to="/payment">
-                    {{ payable ? "Buy membership" : "Configure payment" }}
+                <v-btn
+                    :disabled="payable === 'Sold out'"
+                    color="primary"
+                    to="/payment"
+                >
+                    {{
+                        payable === "Sold out"
+                            ? "Sold out"
+                            : payable === true
+                            ? "Buy membership"
+                            : "Configure payment"
+                    }}
                 </v-btn>
             </v-row>
             <br />
@@ -129,7 +139,7 @@ export default Vue.extend({
         loaded: false,
         userOpened: false,
         unverified: false,
-        payable: false,
+        payable: false as string | boolean,
         keyData: null as UserKey | null
     }),
     async mounted() {
