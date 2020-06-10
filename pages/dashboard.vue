@@ -247,6 +247,7 @@ export default Vue.extend({
         }
     }
 });
+// blah
 </script>
 
 <style scoped></style>
