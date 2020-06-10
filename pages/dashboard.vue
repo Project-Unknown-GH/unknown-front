@@ -53,7 +53,7 @@
                     </v-expand-transition>
                 </v-card>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" to="/payment">
+                <v-btn color="primary" v-if="payable" to="/payment">
                     Buy membership
                 </v-btn>
             </v-row>
@@ -128,7 +128,7 @@ export default Vue.extend({
         userData: null as Record<string, unknown> | null,
         loaded: false,
         userOpened: false,
-        unverified: true,
+        unverified: false,
         payable: false,
         keyData: null as UserKey | null
     }),
@@ -147,6 +147,9 @@ export default Vue.extend({
                     body: JSON.stringify({})
                 }
             );
+            if (this.userData?.role === "none") {
+                this.unverified = true;
+            }
             this.payable = await payable.json();
             this.keyData = await this.getKeysForUser();
             this.loaded = true;
