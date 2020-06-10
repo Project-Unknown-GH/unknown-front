@@ -21,7 +21,7 @@ const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
 export default Vue.extend({
     data() {
         return {
-            seshkey: null,
+            seshkey: null as null | any,
             payable: false as string | boolean,
             unsubscribable: false
         };
@@ -69,9 +69,11 @@ export default Vue.extend({
 
     methods: {
         async pay() {
-            await stripe.redirectToCheckout({
-                sessionId: this.seshkey.id
-            });
+            if (this.seshkey?.id) {
+                await stripe.redirectToCheckout({
+                    sessionId: this.seshkey.id
+                });
+            }
         },
         async unsubscribe() {
             await fetch(`${config.serverUrl}/api/payment/cancel`, {
