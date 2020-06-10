@@ -20,10 +20,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-account</v-icon>
-                        <v-card-title class="justify-center">
+                        <v-card-title style="color: #222">
                             Great community
                         </v-card-title>
-                        <v-card-text class="featureText">
+                        <v-card-text style="color: #222">
                             Our community is helpful, friendly, and will always
                             help you out with any botting problems or questions
                             that you might have.
@@ -33,10 +33,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-robot</v-icon>
-                        <v-card-title class="justify-center">
+                        <v-card-title style="color: #222">
                             Custom-built monitors
                         </v-card-title>
-                        <v-card-text class="featureText">
+                        <v-card-text style="color: #222">
                             Our development team has carefully constructed a set
                             of store monitors in order to keep you up to date on
                             the latest restocks.
@@ -46,10 +46,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-discord</v-icon>
-                        <v-card-title class="justify-center">
+                        <v-card-title style="color: #222">
                             Exclusive discord
                         </v-card-title>
-                        <v-card-text class="featureText">
+                        <v-card-text style="color: #222">
                             If you join the group, you gain access to an
                             exclusive Discord server with plenty of monitors and
                             a great community.
@@ -61,10 +61,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-cash-multiple</v-icon>
-                        <v-card-title class="justify-center">
+                        <v-card-title style="color: #222">
                             Affordable pricing
                         </v-card-title>
-                        <v-card-text class="featureText">
+                        <v-card-text style="color: #222">
                             The price to join is especially cheap, with a price
                             of we don't know yet. Completely worth the money.
                         </v-card-text>
@@ -73,10 +73,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-laptop</v-icon>
-                        <v-card-title class="justify-center">
+                        <v-card-title style="color: #222">
                             Rigel
                         </v-card-title>
-                        <v-card-text class="featureText">
+                        <v-card-text style="color: #222">
                             Rigel is an automated chrome extension that
                             maximizes your chances of checking out Supreme. Put
                             in your info, add your item to the cart, and Rigel
@@ -87,10 +87,13 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-gift</v-icon>
-                        <v-card-title class="justify-center">
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #222"
+                        >
                             Giveaways
                         </v-card-title>
-                        <v-card-text class="featureText">
+                        <v-card-text class="featureText" style="color: #222">
                             We host a large amount of giveaways, giving away
                             things like slots, Discord Nitro, premium shoe bots,
                             and more!
