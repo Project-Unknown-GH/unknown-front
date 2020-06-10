@@ -52,10 +52,12 @@
                         </div>
                     </v-expand-transition>
                 </v-card>
-                <v-btn>
+                <v-spacer></v-spacer>
+                <v-btn color="primary" to="/payment">
                     Buy membership
                 </v-btn>
             </v-row>
+            <br />
             <v-row>
                 <v-expansion-panels v-if="loaded" multiple>
                     <v-expansion-panel>
@@ -72,14 +74,6 @@
                         </v-expansion-panel-header>
                         <v-expansion-panel-content>
                             {{ keyData.rigelKey.value }}
-                        </v-expansion-panel-content>
-                    </v-expansion-panel>
-                    <v-expansion-panel>
-                        <v-expansion-panel-header>
-                            Random row
-                        </v-expansion-panel-header>
-                        <v-expansion-panel-content>
-                            Just something here for testing.
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
@@ -135,12 +129,25 @@ export default Vue.extend({
         loaded: false,
         userOpened: false,
         unverified: true,
+        payable: false,
         keyData: null as UserKey | null
     }),
     async mounted() {
         const data = await this.getUserData();
         if (data) {
             this.userData = data;
+            const payable = await fetch(
+                `${config.serverUrl}/api/payment/payable`,
+                {
+                    method: "POST",
+                    credentials: "include",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({})
+                }
+            );
+            this.payable = await payable.json();
             this.keyData = await this.getKeysForUser();
             this.loaded = true;
         } else {
