@@ -20,7 +20,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-account</v-icon>
-                        <v-card-title style="color: #222">
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #222"
+                        >
                             Great community
                         </v-card-title>
                         <v-card-text style="color: #222">
@@ -33,7 +36,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-robot</v-icon>
-                        <v-card-title style="color: #222">
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #222"
+                        >
                             Custom-built monitors
                         </v-card-title>
                         <v-card-text style="color: #222">
@@ -46,7 +52,10 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-discord</v-icon>
-                        <v-card-title style="color: #222">
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #222"
+                        >
                             Exclusive discord
                         </v-card-title>
                         <v-card-text style="color: #222">
@@ -61,19 +70,25 @@
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-cash-multiple</v-icon>
-                        <v-card-title style="color: #222">
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #222"
+                        >
                             Affordable pricing
                         </v-card-title>
                         <v-card-text style="color: #222">
                             The price to join is especially cheap, with a price
-                            of we don't know yet. Completely worth the money.
+                            of only $9.99 a month! Completely worth the money.
                         </v-card-text>
                     </v-card>
                 </v-col>
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#ddd">
                         <v-icon class="featureIcon">mdi-laptop</v-icon>
-                        <v-card-title style="color: #222">
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #222"
+                        >
                             Rigel
                         </v-card-title>
                         <v-card-text style="color: #222">
@@ -102,16 +117,16 @@
                 </v-col>
             </v-row>
         </v-container>
-        <v-card class="ma-3 pa-6" style="text-align: center">
+        <v-card class="ma-3 pa-6" style="text-align: center" color="#ddd">
             <v-card-title
                 class="justify-center"
-                style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt"
+                style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt; color: #222"
                 >Register</v-card-title
             >
             <v-btn color="error" to="login">Register now!</v-btn>
-            <v-card-text
+            <v-card-text style="color: #222"
                 >Creating an account is free. Once you are registered, you can
-                pay [amount] to become a paid member of Project
+                pay $9.99 a month to become a paid member of Project
                 Unknown!</v-card-text
             >
         </v-card>
