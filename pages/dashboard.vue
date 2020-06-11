@@ -2,7 +2,7 @@
     <v-layout v-if="loaded">
         <v-container>
             <v-row>
-                <v-card style="clear: both">
+                <v-card>
                     <v-card-text>
                         <p>
                             <span class="display-3 text--primary">
@@ -39,6 +39,14 @@
                                     <v-list-item-subtitle>
                                         {{ userData.email }}
                                     </v-list-item-subtitle>
+                                    <v-btn
+                                        v-if="userData.role === 'none'"
+                                        small
+                                        width="10px"
+                                        @click="resendVerificationEmail"
+                                    >
+                                        Resend verification email
+                                    </v-btn>
                                 </v-list-item-content>
                             </v-list-item>
                             <v-list-item two-line>
@@ -97,10 +105,6 @@
                     verified. Simply go to your email, find the verification
                     email that was sent by us, and click the link. Doing so will
                     help us prevent spam accounts. Thank you!
-                </v-card-text>
-                <v-card-text>
-                    If you fail to verify your email within the next 3 days,
-                    your account will be deleted.
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>
@@ -168,6 +172,13 @@ export default Vue.extend({
         }
     },
     methods: {
+        async resendVerificationEmail() {
+            if (this.userData?.role === "none") {
+                await fetch(
+                    `${config.serverUrl}/api/email/sendVerificationEmail/${this.userData.id}`
+                );
+            }
+        },
         async getUserData() {
             const resp = await fetch(`${config.serverUrl}/api/users/userData`, {
                 method: "GET",
@@ -247,7 +258,6 @@ export default Vue.extend({
         }
     }
 });
-// blah
 </script>
 
 <style scoped></style>
