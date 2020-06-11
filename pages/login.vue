@@ -50,7 +50,12 @@
                 <v-btn large block color="error" @click="logout">Log out</v-btn>
             </v-tab-item>
         </v-tabs>
-        {{ status }}
+        <v-snackbar v-model="errored" :top="true" color="error">
+            {{ error }}
+            <v-btn @click="error = ''">
+                Close
+            </v-btn>
+        </v-snackbar>
     </v-layout>
 </template>
 
@@ -64,7 +69,7 @@ export default Vue.extend({
         username: "",
         email: "",
         password: "",
-        status: "",
+        error: "",
         emailRules: [
             (v: string) => !!v || "E-mail is required",
             (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid"
@@ -79,6 +84,11 @@ export default Vue.extend({
         ],
         tab: null
     }),
+    computed: {
+        errored() {
+            return this.error !== "";
+        }
+    },
     methods: {
         async login() {
             const resp = await fetch(`${config.serverUrl}/api/auth/login`, {
@@ -92,7 +102,12 @@ export default Vue.extend({
                     password: this.password
                 })
             });
-            this.status = await resp.json();
+            const status = await resp.json();
+            if (status.status === 200) {
+                await this.$router.push("/dashboard");
+            } else {
+                this.error = status.message;
+            }
         },
         async create() {
             const resp = await fetch(
@@ -110,17 +125,19 @@ export default Vue.extend({
                     })
                 }
             );
-            this.status = await resp.json();
+            const status = await resp.json();
+            if (status.status === 200) {
+                await this.$router.push("/dashboard");
+            }
         },
         async logout() {
-            const resp = await fetch(`${config.serverUrl}/api/auth/logout`, {
+            await fetch(`${config.serverUrl}/api/auth/logout`, {
                 method: "GET",
                 credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
                 }
             });
-            this.status = await resp.json();
         },
         resetForm() {
             this.username = "";
