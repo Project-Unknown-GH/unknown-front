@@ -126,7 +126,7 @@ export default Vue.extend({
                 }
             );
             const status = await resp.json();
-            if (status.status === 200) {
+            if (status.status === 201) {
                 await this.$router.push("/dashboard");
             }
         },

@@ -61,19 +61,6 @@
                     </v-expand-transition>
                 </v-card>
                 <v-spacer></v-spacer>
-                <v-btn
-                    :disabled="payable === 'Sold out'"
-                    color="primary"
-                    to="/payment"
-                >
-                    {{
-                        payable === "Sold out"
-                            ? "Sold out"
-                            : payable === true
-                            ? "Buy membership"
-                            : "Configure payment"
-                    }}
-                </v-btn>
             </v-row>
             <br />
             <v-row>
@@ -95,6 +82,20 @@
                         </v-expansion-panel-content>
                     </v-expansion-panel>
                 </v-expansion-panels>
+            </v-row>
+            <br />
+            <v-row>
+                <v-btn :disabled="payable !== true" @click="pay">
+                    {{
+                        payable === "Sold out"
+                            ? "Sold out"
+                            : "Pay with credit card"
+                    }}
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn :disabled="!unsubscribable" @click="unsubscribe">
+                    Unsubscribe
+                </v-btn>
             </v-row>
         </v-container>
         <v-dialog v-model="unverified" persistent width="500">
@@ -124,6 +125,10 @@
 import Vue from "vue";
 import config from "~/assets/config";
 
+// @ts-ignore
+// eslint-disable-next-line no-undef
+const stripe = Stripe(`pk_test_1SMbb3HOTJRaOp9Cpy8iAg9K00hW9hlE7T`);
+
 type UserRole = "admin" | "member" | "verified" | "none";
 interface UserKey {
     discordKey: {
@@ -143,15 +148,23 @@ export default Vue.extend({
         loaded: false,
         userOpened: false,
         unverified: false,
+        seshkey: null as null | any,
         payable: false as string | boolean,
+        unsubscribable: false,
         keyData: null as UserKey | null
     }),
     async mounted() {
-        const data = await this.getUserData();
-        if (data) {
-            this.userData = data;
-            const payable = await fetch(
-                `${config.serverUrl}/api/payment/payable`,
+        const payable = await fetch(`${config.serverUrl}/api/payment/payable`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({})
+        });
+        if ((await payable.json()) === true) {
+            const seshkey = await fetch(
+                `${config.serverUrl}/api/payment/createPayment`,
                 {
                     method: "POST",
                     credentials: "include",
@@ -161,10 +174,29 @@ export default Vue.extend({
                     body: JSON.stringify({})
                 }
             );
+            this.seshkey = (await seshkey.json()).session;
+            this.payable = true;
+        }
+        const unsubscribable = await fetch(
+            `${config.serverUrl}/api/payment/unsubscribable`,
+            {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            }
+        );
+        if ((await unsubscribable.json()) === true) {
+            this.unsubscribable = true;
+        }
+        const data = await this.getUserData();
+        if (data) {
+            this.userData = data;
             if (this.userData?.role === "none") {
                 this.unverified = true;
             }
-            this.payable = await payable.json();
             this.keyData = await this.getKeysForUser();
             this.loaded = true;
         } else {
@@ -244,6 +276,23 @@ export default Vue.extend({
                     }
                 };
             }
+        },
+        async pay() {
+            if (this.seshkey?.id) {
+                await stripe.redirectToCheckout({
+                    sessionId: this.seshkey.id
+                });
+            }
+        },
+        async unsubscribe() {
+            await fetch(`${config.serverUrl}/api/payment/cancel`, {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            });
         },
         roleToColor(role: UserRole) {
             if (role === "admin") {
