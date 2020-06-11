@@ -1,6 +1,6 @@
 <template>
     <v-layout>
-        <v-tabs v-model="tab" fixed-tabs>
+        <v-tabs v-model="tab" fixed-tabs color="white" slider-color="white">
             <v-tab>Register</v-tab>
             <v-tab-item class="v-tab-item">
                 <v-form>
