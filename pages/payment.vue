@@ -38,7 +38,7 @@ export default Vue.extend({
         });
         if ((await payable.json()) === true) {
             const seshkey = await fetch(
-                "http://localhost:7400/api/payment/createPayment",
+                `${config.serverUrl}/api/payment/createPayment`,
                 {
                     method: "POST",
                     credentials: "include",
