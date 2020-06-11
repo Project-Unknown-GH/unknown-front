@@ -1,6 +1,6 @@
-# unknown
+# Project Unknown
 
-> Project Unknown front end
+> The site for Project Unknown!
 
 ## Build Setup
 
