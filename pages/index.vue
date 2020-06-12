@@ -7,6 +7,11 @@
             <span></span>
             <span></span>
         </div>
+        <img
+            src="~/static/projectunknlogo.png"
+            class="logo"
+            alt="Project Unknown logo"
+        />
         <h1 class="titleWords">Project Unknown</h1>
         <h3 class="subtitleWords">A new, innovative cook group.</h3>
         <br />
@@ -18,15 +23,15 @@
         <v-container>
             <v-row justify="center">
                 <v-col>
-                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
                         <v-icon class="featureIcon">mdi-account</v-icon>
                         <v-card-title
                             class="justify-center"
-                            style="color: #222"
+                            style="color: #FFF"
                         >
                             Great community
                         </v-card-title>
-                        <v-card-text style="color: #222">
+                        <v-card-text style="color: #FFF">
                             Our community is helpful, friendly, and will always
                             help you out with any botting problems or questions
                             that you might have.
@@ -34,15 +39,15 @@
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
                         <v-icon class="featureIcon">mdi-robot</v-icon>
                         <v-card-title
                             class="justify-center"
-                            style="color: #222"
+                            style="color: #FFF"
                         >
                             Custom-built monitors
                         </v-card-title>
-                        <v-card-text style="color: #222">
+                        <v-card-text style="color: #FFF">
                             Our development team has carefully constructed a set
                             of store monitors in order to keep you up to date on
                             the latest restocks.
@@ -50,15 +55,15 @@
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
                         <v-icon class="featureIcon">mdi-discord</v-icon>
                         <v-card-title
                             class="justify-center"
-                            style="color: #222"
+                            style="color: #FFF"
                         >
                             Exclusive discord
                         </v-card-title>
-                        <v-card-text style="color: #222">
+                        <v-card-text style="color: #FFF">
                             If you join the group, you gain access to an
                             exclusive Discord server with plenty of monitors and
                             a great community.
@@ -68,30 +73,30 @@
             </v-row>
             <v-row justify="center">
                 <v-col>
-                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
                         <v-icon class="featureIcon">mdi-cash-multiple</v-icon>
                         <v-card-title
                             class="justify-center"
-                            style="color: #222"
+                            style="color: #FFF"
                         >
                             Affordable pricing
                         </v-card-title>
-                        <v-card-text style="color: #222">
+                        <v-card-text style="color: #FFF">
                             The price to join is especially cheap, with a price
                             of only $9.99 a month! Completely worth the money.
                         </v-card-text>
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
                         <v-icon class="featureIcon">mdi-laptop</v-icon>
                         <v-card-title
                             class="justify-center"
-                            style="color: #222"
+                            style="color: #FFF"
                         >
                             Rigel
                         </v-card-title>
-                        <v-card-text style="color: #222">
+                        <v-card-text style="color: #FFF">
                             Rigel is an automated chrome extension that
                             maximizes your chances of checking out Supreme. Put
                             in your info, add your item to the cart, and Rigel
@@ -100,15 +105,15 @@
                     </v-card>
                 </v-col>
                 <v-col>
-                    <v-card class="ma-3 pa-6 feature" color="#ddd">
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
                         <v-icon class="featureIcon">mdi-gift</v-icon>
                         <v-card-title
                             class="justify-center"
-                            style="color: #222"
+                            style="color: #FFF"
                         >
                             Giveaways
                         </v-card-title>
-                        <v-card-text class="featureText" style="color: #222">
+                        <v-card-text class="featureText" style="color: #FFF">
                             We host a large amount of giveaways, giving away
                             things like slots, Discord Nitro, premium shoe bots,
                             and more!
@@ -117,14 +122,14 @@
                 </v-col>
             </v-row>
         </v-container>
-        <v-card class="ma-3 pa-6" style="text-align: center" color="#ddd">
+        <v-card class="ma-3 pa-6" style="text-align: center" color="#8E23C0">
             <v-card-title
                 class="justify-center"
-                style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt; color: #222"
+                style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt; color: #fff"
                 >Register</v-card-title
             >
-            <v-btn color="error" to="login">Register now!</v-btn>
-            <v-card-text style="color: #222"
+            <v-btn color="#0762E5" to="login">Register now!</v-btn>
+            <v-card-text style="color: #fff"
                 >Creating an account is free. Once you are registered, you can
                 pay $9.99 a month to become a paid member of Project
                 Unknown!</v-card-text
@@ -178,7 +183,7 @@ export default {
 }
 .titleWords {
     position: absolute;
-    top: 20vh;
+    top: 35vh;
     text-align: center;
     font-size: 7vh;
     font-family: "Montserrat", sans-serif;
@@ -186,25 +191,31 @@ export default {
 }
 .subtitleWords {
     position: absolute;
-    top: 35vh;
+    top: 50vh;
     text-align: center;
     font-size: 3.5vh;
     font-family: "Montserrat", sans-serif;
 }
+.logo {
+    height: 25vh;
+    position: absolute;
+    text-align: center;
+    top: 5vh;
+}
 @media only screen and (max-width: 650px) {
     .subtitleWords {
-        top: 45vh;
+        top: 60vh;
     }
 }
 .feature {
     height: 90%;
     text-align: center;
-    color: #222;
+    color: #222fff;
     .featureIcon {
-        color: #222;
+        color: #fff;
     }
     .featureText {
-        color: #222;
+        color: #fff;
     }
 }
 </style>
