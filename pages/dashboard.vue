@@ -85,12 +85,13 @@
             </v-row>
             <br />
             <v-row>
-                <v-btn :disabled="payable !== true" @click="pay">
-                    {{
-                        payable === "Sold out"
-                            ? "Sold out"
-                            : "Pay with credit card"
-                    }}
+                <v-btn :disabled="true" @click="pay">
+                    <!--                    {{-->
+                    <!--                        payable === "Sold out"-->
+                    <!--                            ? "Sold out"-->
+                    <!--                            : "Pay with credit card"-->
+                    <!--                    }}-->
+                    Still in pre-release!
                 </v-btn>
                 <v-spacer></v-spacer>
                 <v-btn :disabled="!unsubscribable" @click="unsubscribe">
