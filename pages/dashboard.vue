@@ -293,6 +293,7 @@ export default Vue.extend({
                 },
                 body: JSON.stringify({})
             });
+            await this.$router.push("/dashboard");
         },
         roleToColor(role: UserRole) {
             if (role === "admin") {
