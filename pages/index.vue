@@ -14,6 +14,13 @@
         />
         <h1 class="titleWords">Project Unknown</h1>
         <h3 class="subtitleWords">A new, innovative cook group.</h3>
+        <v-btn
+            color="primary"
+            class="joinButton"
+            rounded
+            href="https://discord.gg/24TqAYj"
+            >Join now!</v-btn
+        >
         <br />
         <h2
             style="font-family: 'Montserrat', sans-serif; font-size: 36px; text-align: center"
@@ -204,9 +211,23 @@ export default {
     text-align: center;
     top: 5vh;
 }
+.joinButton {
+    position: absolute;
+    top: 60vh;
+    text-align: center;
+    font-size: 2vh;
+}
 @media only screen and (max-width: 650px) {
     .subtitleWords {
         top: 60vh;
+    }
+    .joinButton {
+        top: 67vh;
+    }
+}
+@media only screen and (max-aspect-ratio: 505/937) {
+    .joinButton {
+        top: 75vh;
     }
 }
 .feature {
