@@ -82,8 +82,9 @@
                             Affordable pricing
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            The price to join is especially cheap, with a price
-                            of only $9.99 a month! Completely worth the money.
+                            The price to join is especially cheap, with an
+                            easily affordable price that's completely worth the
+                            money.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -128,11 +129,12 @@
                 style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt; color: #fff"
                 >Register</v-card-title
             >
-            <v-btn color="#0762E5" to="login">Register now!</v-btn>
+            <v-btn color="#0762E5" href="https://discord.gg/24TqAYj"
+                >Join now!</v-btn
+            >
             <v-card-text style="color: #fff"
-                >Creating an account is free. Once you are registered, you can
-                pay $9.99 a month to become a paid member of Project
-                Unknown!</v-card-text
+                >Click this link to join the Project Unknown discord
+                server!</v-card-text
             >
         </v-card>
     </v-layout>
