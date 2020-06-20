@@ -29,6 +29,10 @@ export default {
             },
             {
                 name: "og:image",
+                content: "http://imgur.com/a/1D2uFGV"
+            },
+            {
+                name: "og:image:secure",
                 content: "https://imgur.com/a/1D2uFGV"
             },
             {
