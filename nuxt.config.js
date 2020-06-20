@@ -19,12 +19,17 @@ export default {
                 content: "Project Unknown"
             },
             {
+                name: "og:description",
+                content:
+                    "Project Unknown is a new, innovative cook group with lucrative opportunities and a wonderful community."
+            },
+            {
                 name: "og:url",
                 content: "https://projectunkn.com"
             },
             {
                 name: "og:image",
-                content: "@/static/projectunknlogofull.jpg"
+                content: "https://imgur.com/a/1D2uFGV"
             },
             {
                 hid: "description",
