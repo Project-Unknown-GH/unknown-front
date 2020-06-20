@@ -32,7 +32,7 @@ export default {
                 content: "http://imgur.com/a/1D2uFGV"
             },
             {
-                name: "og:image:secure",
+                name: "og:image:secure_url",
                 content: "https://imgur.com/a/1D2uFGV"
             },
             {
