@@ -15,6 +15,18 @@ export default {
                 content: "width=device-width, initial-scale=1"
             },
             {
+                name: "og:title",
+                content: "Project Unknown"
+            },
+            {
+                name: "og:url",
+                content: "https://projectunkn.com"
+            },
+            {
+                name: "og:image",
+                content: "@/static/projectunknlogofull.jpg"
+            },
+            {
                 hid: "description",
                 name: "description",
                 content: process.env.npm_package_description || ""

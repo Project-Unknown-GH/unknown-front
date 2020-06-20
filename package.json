@@ -1,7 +1,7 @@
 {
-    "name": "unknown",
+    "name": "project-unknown",
     "version": "1.0.0",
-    "description": "Project Unknown front end",
+    "description": "The website for Project Unknown, a new, innovate cook group.",
     "author": "ImperialWater",
     "private": true,
     "scripts": {
