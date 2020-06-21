@@ -22,7 +22,13 @@
                 :items="users"
                 :items-per-page="5"
                 :search="search"
-            ></v-data-table>
+            >
+                <template v-slot:item.role="{ item }">
+                    <v-chip :color="roleToColor(item.role)" dark>
+                        {{ item.role }}
+                    </v-chip>
+                </template>
+            </v-data-table>
         </v-card>
     </div>
 </template>
@@ -56,6 +62,17 @@ export default Vue.extend({
                     "Content-Type": "application/json"
                 }
             });
+        },
+        roleToColor(role: string) {
+            if (role === "admin") {
+                return "#cc2900";
+            } else if (role === "member") {
+                return "#00800f";
+            } else if (role === "verified") {
+                return "#003580";
+            } else {
+                return "#777";
+            }
         }
     }
 });
