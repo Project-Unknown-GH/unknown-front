@@ -96,15 +96,15 @@
                 </v-col>
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-gift</v-icon>
+                        <v-icon class="featureIcon">mdi-account-group</v-icon>
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
                         >
-                            Giveaways
+                            Autocheckout team
                         </v-card-title>
                         <v-card-text class="featureText" style="color: #FFF">
-                            ProjectUnknown loves giving back to the community. Daily giveaways such as proxies, Discord Nitro, and more.
+                            Our ACO team is made out of the best sneaker botters in this community. They display their skills through many bots such as Cyber, Kodai, Balkobot, and more. Sit back and let us COP for you! 
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -140,15 +140,15 @@
                 </v-col>
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-account-group</v-icon>
+                        <v-icon class="featureIcon">mdi-gift</v-icon>
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
                         >
-                            Autocheckout Team
+                            Giveaways
                         </v-card-title>
                         <v-card-text class="featureText" style="color: #FFF">
-                            Our ACO team is made out of the best sneaker botters in this community. They display their skills through many bots such as Cyber, Kodai, Balkobot, and more. Sit back and let us COP for you! 
+                            ProjectUnknown loves giving back to the community. Daily giveaways such as proxies, Discord Nitro, and more.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -158,7 +158,7 @@
             <v-card-title
                 class="justify-center"
                 style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt; color: #fff"
-                >Join Now</v-card-title
+                >Closed beta</v-card-title
             >
             <v-btn color="#0762E5">933/1000</v-btn>
         </v-card>
