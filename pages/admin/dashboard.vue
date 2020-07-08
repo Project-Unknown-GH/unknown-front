@@ -2,7 +2,7 @@
     <div class="dashboard">
         Admin dashboard
         <p v-if="!authorized">You are not authorized!</p>
-        <v-card>
+        <v-card v-if="authorized">
             <v-card-title>
                 Users
                 <v-spacer></v-spacer>
@@ -33,7 +33,7 @@
                     </v-chip>
                 </template>
                 <template v-slot:item.actions="{ item }">
-                    <v-icon small @click="deleteItem(item.id)">
+                    <v-icon small @click="deleteItem(item.id, item.role)">
                         mdi-delete
                     </v-icon>
                 </template>
@@ -76,7 +76,10 @@ export default Vue.extend({
                 }
             });
         },
-        async deleteItem(userid: number) {
+        async deleteItem(userid: number, role: string) {
+            if (role !== "member") {
+                return;
+            }
             const result = confirm(
                 "Are you sure you want to cancel the subscription of this user?"
             );
