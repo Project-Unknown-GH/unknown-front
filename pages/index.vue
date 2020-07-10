@@ -24,7 +24,9 @@
             <v-row justify="center">
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-book-information-variant</v-icon>
+                        <v-icon class="featureIcon"
+                            >mdi-book-information-variant</v-icon
+                        >
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
@@ -32,7 +34,10 @@
                             Release Information
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Every single release is displayed with all the release information you need. Resources such as sitelists, release calendars, keywords, monitors & much more will make you never miss another drop!
+                            Every single release is displayed with all the
+                            release information you need. Resources such as
+                            sitelists, release calendars, keywords, monitors &
+                            much more will make you never miss another drop!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -46,7 +51,10 @@
                             Custom-built monitors
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Never miss another restock. ProjectUnknown monitors checking over hundreds of sights to inform you that a hyped item just restocked. All of that in the blink of an eye!
+                            Never miss another restock. ProjectUnknown monitors
+                            checking over hundreds of sights to inform you that
+                            a hyped item just restocked. All of that in the
+                            blink of an eye!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -60,7 +68,9 @@
                             Early Links & Variants
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Thanks to our private providers, you can start the race ahead of the competition. Secure every drop with accurate early links.
+                            Thanks to our private providers, you can start the
+                            race ahead of the competition. Secure every drop
+                            with accurate early links.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -68,7 +78,9 @@
             <v-row justify="center">
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-account-question</v-icon>
+                        <v-icon class="featureIcon"
+                            >mdi-account-question</v-icon
+                        >
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
@@ -76,7 +88,11 @@
                             24/7 Support Team
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            The staff team has gained tons of experience throughout the years. We are always here to help you with your questions such as setups, releases, and much more. Avoid all the bad holes of the industry and let us show you the road!
+                            The staff team has gained tons of experience
+                            throughout the years. We are always here to help you
+                            with your questions such as setups, releases, and
+                            much more. Avoid all the bad holes of the industry
+                            and let us show you the road!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -90,7 +106,9 @@
                             Custom-built Tools
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Tool your way out to the top of every release. Save time and use our in-house custom built tools, they will facilitate your setup for each drop.
+                            Tool your way out to the top of every release. Save
+                            time and use our in-house custom built tools, they
+                            will facilitate your setup for each drop.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -104,7 +122,10 @@
                             Autocheckout team
                         </v-card-title>
                         <v-card-text class="featureText" style="color: #FFF">
-                            Our ACO team is made out of the best sneaker botters in this community. They display their skills through many bots such as Cyber, Kodai, Balkobot, and more. Sit back and let us COP for you! 
+                            Our ACO team is made out of the best sneaker botters
+                            in this community. They display their skills through
+                            many bots such as Cyber, Kodai, Balkobot, and more.
+                            Sit back and let us COP for you!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -120,7 +141,9 @@
                             Autofill Extension
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Rigel, the fastest autofill chrome extension working on dozens of sites will assure our manual users to destroy every drop.
+                            Rigel, the fastest autofill chrome extension working
+                            on dozens of sites will assure our manual users to
+                            destroy every drop.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -134,7 +157,9 @@
                             Exclusive Community
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            ProjectUnknown limits its community to only 1000 members. This means you are the most important part of this enterprise!
+                            ProjectUnknown limits its community to only 1000
+                            members. This means you are the most important part
+                            of this enterprise!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -148,7 +173,9 @@
                             Giveaways
                         </v-card-title>
                         <v-card-text class="featureText" style="color: #FFF">
-                            ProjectUnknown loves giving back to the community. Daily giveaways such as proxies, Discord Nitro, and more.
+                            ProjectUnknown loves giving back to the community.
+                            Daily giveaways such as proxies, Discord Nitro, and
+                            more.
                         </v-card-text>
                     </v-card>
                 </v-col>

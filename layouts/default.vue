@@ -25,6 +25,9 @@
             </v-list>
         </v-navigation-drawer>
         <v-app-bar :clipped-left="clipped" fixed app>
+            <v-btn>
+                <v-icon>mdi-twitter</v-icon>
+            </v-btn>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
             <v-spacer />
             <v-btn rounded right color="#0762E5" to="/dashboard"
