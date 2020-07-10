@@ -14,13 +14,6 @@
         />
         <h1 class="titleWords">Project Unknown</h1>
         <h3 class="subtitleWords">A new, innovative cook group.</h3>
-        <v-btn
-            color="primary"
-            class="joinButton"
-            rounded
-            href="https://discord.gg/24TqAYj"
-            >Join now!</v-btn
-        >
         <br />
         <h2
             style="font-family: 'Montserrat', sans-serif; font-size: 36px; text-align: center"
@@ -31,17 +24,15 @@
             <v-row justify="center">
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-account</v-icon>
+                        <v-icon class="featureIcon">mdi-book-information-variant</v-icon>
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
                         >
-                            Great community
+                            Release Information
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Our community is helpful, friendly, and will always
-                            help you out with any botting problems or questions
-                            that you might have.
+                            Every single release is displayed with all the release information you need. Resources such as sitelists, release calendars, keywords, monitors & much more will make you never miss another drop!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -55,25 +46,21 @@
                             Custom-built monitors
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Our development team has carefully constructed a set
-                            of store monitors in order to keep you up to date on
-                            the latest restocks.
+                            Never miss another restock. ProjectUnknown monitors checking over hundreds of sights to inform you that a hyped item just restocked. All of that in the blink of an eye!
                         </v-card-text>
                     </v-card>
                 </v-col>
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-discord</v-icon>
+                        <v-icon class="featureIcon">mdi-calendar-clock</v-icon>
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
                         >
-                            Exclusive discord
+                            Early Links & Variants
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            If you join the group, you gain access to an
-                            exclusive Discord server with plenty of monitors and
-                            a great community.
+                            Thanks to our private providers, you can start the race ahead of the competition. Secure every drop with accurate early links.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -81,17 +68,15 @@
             <v-row justify="center">
                 <v-col>
                     <v-card class="ma-3 pa-6 feature" color="#8E23C0">
-                        <v-icon class="featureIcon">mdi-cash-multiple</v-icon>
+                        <v-icon class="featureIcon">mdi-account-question</v-icon>
                         <v-card-title
                             class="justify-center"
                             style="color: #FFF"
                         >
-                            Affordable pricing
+                            24/7 Support Team
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            The price to join is especially cheap, with an
-                            easily affordable price that's completely worth the
-                            money.
+                            The staff team has gained tons of experience throughout the years. We are always here to help you with your questions such as setups, releases, and much more. Avoid all the bad holes of the industry and let us show you the road!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -102,13 +87,54 @@
                             class="justify-center"
                             style="color: #FFF"
                         >
-                            Rigel
+                            Custom-built Tools
                         </v-card-title>
                         <v-card-text style="color: #FFF">
-                            Rigel is an automated chrome extension that
-                            maximizes your chances of checking out Supreme. Put
-                            in your info, add your item to the cart, and Rigel
-                            will do the rest.
+                            Tool your way out to the top of every release. Save time and use our in-house custom built tools, they will facilitate your setup for each drop.
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col>
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
+                        <v-icon class="featureIcon">mdi-account-group</v-icon>
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #FFF"
+                        >
+                            Autocheckout team
+                        </v-card-title>
+                        <v-card-text class="featureText" style="color: #FFF">
+                            Our ACO team is made out of the best sneaker botters in this community. They display their skills through many bots such as Cyber, Kodai, Balkobot, and more. Sit back and let us COP for you! 
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+            </v-row>
+            <v-row justify="center">
+                <v-col>
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
+                        <v-icon class="featureIcon">mdi-laptop-windows</v-icon>
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #FFF"
+                        >
+                            Autofill Extension
+                        </v-card-title>
+                        <v-card-text style="color: #FFF">
+                            Rigel, the fastest autofill chrome extension working on dozens of sites will assure our manual users to destroy every drop.
+                        </v-card-text>
+                    </v-card>
+                </v-col>
+                <v-col>
+                    <v-card class="ma-3 pa-6 feature" color="#8E23C0">
+                        <v-icon class="featureIcon">mdi-discord</v-icon>
+                        <v-card-title
+                            class="justify-center"
+                            style="color: #FFF"
+                        >
+                            Exclusive Community
+                        </v-card-title>
+                        <v-card-text style="color: #FFF">
+                            ProjectUnknown limits its community to only 1000 members. This means you are the most important part of this enterprise!
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -122,9 +148,7 @@
                             Giveaways
                         </v-card-title>
                         <v-card-text class="featureText" style="color: #FFF">
-                            We host a large amount of giveaways, giving away
-                            things like slots, Discord Nitro, premium shoe bots,
-                            and more!
+                            ProjectUnknown loves giving back to the community. Daily giveaways such as proxies, Discord Nitro, and more.
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -134,15 +158,9 @@
             <v-card-title
                 class="justify-center"
                 style="font-family: 'Montserrat',sans-serif; font-size: 36px; letter-spacing: 1pt; color: #fff"
-                >Register</v-card-title
+                >Closed beta</v-card-title
             >
-            <v-btn color="#0762E5" href="https://discord.gg/24TqAYj"
-                >Join now!</v-btn
-            >
-            <v-card-text style="color: #fff"
-                >Click this link to join the Project Unknown discord
-                server!</v-card-text
-            >
+            <v-btn color="#0762E5">933/1000</v-btn>
         </v-card>
     </v-layout>
 </template>
@@ -211,23 +229,9 @@ export default {
     text-align: center;
     top: 5vh;
 }
-.joinButton {
-    position: absolute;
-    top: 60vh;
-    text-align: center;
-    font-size: 2vh;
-}
 @media only screen and (max-width: 650px) {
     .subtitleWords {
         top: 60vh;
-    }
-    .joinButton {
-        top: 67vh;
-    }
-}
-@media only screen and (max-aspect-ratio: 505/937) {
-    .joinButton {
-        top: 75vh;
     }
 }
 .feature {
