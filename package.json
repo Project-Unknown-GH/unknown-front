@@ -15,7 +15,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "nuxt": "^2.0.0",
+        "nuxt": "^2.17.0",
         "vue-stripe-checkout": "^3.3.1"
     },
     "devDependencies": {
